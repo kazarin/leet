@@ -50,3 +50,18 @@ func IntsToListNodesWithCycle(nums []int, pos int) *ListNode {
 	head.Next = cycleTo
 	return head
 }
+
+func (list1 *ListNode) SameAs(list2 *ListNode) bool {
+	l1 := list1
+	l2 := list2
+	for l1.Next != nil && l2.Next != nil {
+		if l1.Val != l2.Val {
+			return false
+		}
+		l1 = l1.Next
+		l2 = l2.Next
+
+	}
+	return true
+
+}
