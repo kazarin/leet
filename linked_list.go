@@ -18,6 +18,17 @@ func (l *ListNode) PrettyPrint() {
 	fmt.Println()
 }
 
+func (l *ListNode) ToArray() []int {
+	head := l
+	var res []int
+
+	for head != nil {
+		res = append(res, head.Val)
+		head = head.Next
+	}
+	return res
+}
+
 func IntsToListNodes(nums []int) *ListNode {
 	h := &ListNode{Val: nums[0]}
 	head := h
