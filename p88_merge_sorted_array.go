@@ -1,12 +1,9 @@
 package main
 
-import "fmt"
-
 func merge(nums1 []int, m int, nums2 []int, n int) {
 	nums := make([]int, m)
 	copy(nums, nums1)
 
-	fmt.Println(nums)
 	a := 0
 
 	b := 0
