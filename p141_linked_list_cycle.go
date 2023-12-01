@@ -1,13 +1,15 @@
 package main
 
 func hasCycle(head *ListNode) bool {
-	visited := map[ListNode]int{}
-	for head != nil && head.Next != nil {
-		if _, ok := visited[*head]; ok {
+	slow := head
+	fast := head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
 			return true
 		}
-		visited[*head]++
-		head = head.Next
 	}
+
 	return false
 }
