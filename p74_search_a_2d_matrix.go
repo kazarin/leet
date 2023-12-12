@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func findRow(matrix [][]int, target int) int {
 	left := 0
 	right := len(matrix) - 1
@@ -26,7 +24,6 @@ func searchMatrix(matrix [][]int, target int) bool {
 	if row == -1 {
 		return false
 	}
-	fmt.Println(matrix[row])
 
 	nums := matrix[row]
 

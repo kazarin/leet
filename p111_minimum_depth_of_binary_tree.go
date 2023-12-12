@@ -1,9 +1,5 @@
 package main
 
-func traverse(root *TreeNode, depth int) int {
-	return 0
-}
-
 func minDepth(root *TreeNode) int {
 	if root == nil {
 		return 0
