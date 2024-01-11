@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -15,7 +14,6 @@ func getMinimumDifference(root *TreeNode) int {
 		}
 		fx(root.Left)
 		if prevNode != nil {
-			fmt.Printf("prev: %d, curr: %d\n", prevNode.Val, root.Val)
 			out = min(out, abs(root.Val-prevNode.Val))
 		}
 		prevNode = root
