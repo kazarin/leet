@@ -1,29 +1,20 @@
 package main
 
-import "sort"
-
 func isValidBST(root *TreeNode) bool {
-	values := []int{}
-	var fx func(*TreeNode)
-	fx = func(root *TreeNode) {
+	var fx func(*TreeNode) bool
+	var prevNode *TreeNode
+	fx = func(root *TreeNode) bool {
 		if root == nil {
-			return
+			return true
 		}
-		fx(root.Left)
-		values = append(values, root.Val)
-		fx(root.Right)
-	}
-	fx(root)
-	sorted := make([]int, len(values))
-	copy(sorted, values)
-	sort.Ints(sorted)
-	for i := 0; i < len(values); i++ {
-		if i < len(values)-1 && sorted[i] == sorted[i+1] {
+		if fx(root.Left) == false {
 			return false
 		}
-		if sorted[i] != values[i] {
+		if prevNode != nil && prevNode.Val >= root.Val {
 			return false
 		}
+		prevNode = root
+		return fx(root.Right)
 	}
-	return true
+	return fx(root)
 }
